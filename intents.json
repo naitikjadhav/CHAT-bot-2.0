@@ -1,0 +1,159 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey", "good morning", "good afternoon", "is anyone there", "hey there", "hola"],
+      "responses": ["Hello! Welcome to the College Info Desk. How can I help you today?", "Hi there! Ask me about admissions, courses, fees, timings, or facilities."]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "see you later", "goodbye", "take care", "catch you later", "quit"],
+      "responses": ["Goodbye! Feel free to come back if you have more questions.", "Take care! Good luck with your college journey."]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thanks", "thank you", "that's helpful", "thanks a lot", "appreciate it"],
+      "responses": ["You're welcome!", "Happy to help! Anything else you'd like to know?"]
+    },
+    {
+      "tag": "admission",
+      "patterns": ["how do I apply for admission", "admission process", "how to get admission", "eligibility for admission", "when does admission start", "admission criteria"],
+      "responses": ["Admissions open every year in June. You need to fill the online application form on the college website, upload your 12th marksheet, and appear for the entrance test/counseling as applicable.", "To apply: visit the admissions portal, submit your academic documents, and pay the application fee. Merit lists are published within two weeks of the deadline."]
+    },
+    {
+      "tag": "courses",
+      "patterns": ["what courses are offered", "list of courses", "which branches are available", "what programs do you have", "departments in college"],
+      "responses": ["We offer undergraduate programs in Computer Science, Information Technology, Electronics, Mechanical, Civil, and Business Administration, along with postgraduate programs in select departments.", "Available courses include B.Tech (CSE, IT, ECE, Mech, Civil), BBA, and MBA. Ask me about a specific course for more details."]
+    },
+    {
+      "tag": "fees",
+      "patterns": ["what is the fee structure", "how much are the fees", "tuition fee details", "fee payment", "scholarship available"],
+      "responses": ["The annual tuition fee varies by course, ranging from 60,000 to 1,50,000 rupees. Detailed fee structure is available on the college website under 'Admissions > Fees'.", "Fees can be paid online via the student portal in one installment or two semester-wise installments. Merit and need-based scholarships are also available."]
+    },
+    {
+      "tag": "timings",
+      "patterns": ["what are the college timings", "when does college start", "college hours", "office hours", "what time does college close"],
+      "responses": ["College hours are 9:00 AM to 4:30 PM, Monday to Saturday. The administrative office is open from 9:00 AM to 5:00 PM.", "Classes run from 9 AM to 4:30 PM on weekdays, with a half day on Saturdays."]
+    },
+    {
+      "tag": "library",
+      "patterns": ["library timings", "how to issue a book", "library rules", "does the library have wifi", "library facilities"],
+      "responses": ["The library is open from 8:30 AM to 7:00 PM on all working days. Students can issue up to 3 books for 15 days using their student ID.", "The central library has over 50,000 books, digital journals, a reading hall, and free Wi-Fi for students."]
+    },
+    {
+      "tag": "hostel",
+      "patterns": ["is hostel available", "hostel facilities", "hostel fee", "how to apply for hostel"],
+      "responses": ["Yes, separate hostels are available for boys and girls with mess facilities, Wi-Fi, and 24/7 security. You can apply through the hostel section of the admission form.", "Hostel fees range from 45,000 to 70,000 rupees per year depending on room type (shared/single)."]
+    },
+    {
+      "tag": "exam",
+      "patterns": ["exam schedule", "when are exams", "how to check exam results", "revaluation process", "exam pattern"],
+      "responses": ["Semester exams are usually held in December and May. The exact schedule is published on the notice board and student portal a month in advance.", "Results are declared within 3-4 weeks of the last exam. Revaluation requests can be submitted online within 10 days of result declaration."]
+    },
+    {
+      "tag": "placement",
+      "patterns": ["placement details", "which companies visit for placement", "average package", "placement cell", "internship opportunities"],
+      "responses": ["Our placement cell has tie-ups with over 100 companies including TCS, Infosys, Wipro, and various startups. The average package last year was 4.5 LPA with the highest at 18 LPA.", "The Training & Placement Cell also arranges internships, resume-building workshops, and mock interviews for final-year students."]
+    },
+    {
+      "tag": "contact",
+      "patterns": ["contact number", "college address", "how to reach the college", "email id of college", "contact details"],
+      "responses": ["You can reach us at info@college.edu.in or call the admissions office at +91-9876543210. The campus is located at College Road, Pune, Maharashtra.", "For any queries, email admissions@college.edu.in or visit the administrative office during working hours."]
+    },
+    {
+      "tag": "events",
+      "patterns": ["upcoming events", "college fest", "cultural events", "technical fest", "sports events"],
+      "responses": ["Our annual technical fest 'TechVerse' and cultural fest 'Rhythm' are held every year in February and September respectively. Sports meets are conducted every October.", "Check the Events tab on the college website or the notice board for updates on upcoming workshops, seminars, and fests."]
+    },
+    {
+      "tag": "faculty",
+      "patterns": ["how many faculty members", "faculty details", "who is the HOD", "teacher contact", "faculty qualification"],
+      "responses": ["Each department has 15-20 qualified faculty members, most holding PhDs or M.Tech degrees. Department-wise faculty details are listed on the college website under 'Departments'.", "You can find individual faculty contact details and office hours on the department page of the website."]
+    },
+    {
+      "tag": "attendance",
+      "patterns": ["minimum attendance required", "attendance criteria", "what if my attendance is low", "attendance rule", "is 75 percent attendance mandatory"],
+      "responses": ["As per university rules, a minimum of 75% attendance is mandatory to appear for the semester examinations.", "You need to maintain 75% attendance in both lectures and practicals. Low attendance might result in being debarred from exams unless a valid medical certificate is provided."]
+    },
+    {
+      "tag": "canteen",
+      "patterns": ["is there a canteen", "cafeteria food", "college mess food", "where can I get food on campus", "canteen timings"],
+      "responses": ["Yes, the campus has a spacious central cafeteria serving hygienic veg and non-veg meals, snacks, and beverages from 8:00 AM to 6:00 PM.", "The college canteen and juice center are located near the sports ground. Both breakfast and lunch options are available at subsidized rates for students."]
+    },
+    {
+      "tag": "ragging",
+      "patterns": ["ragging policy", "is ragging allowed", "anti ragging cell", "report ragging", "what if someone bullies me"],
+      "responses": ["Our college follows a strict zero-tolerance policy towards ragging. The campus is 100% ragging-free, and any violation leads to immediate expulsion and legal action.", "Ragging is a punishable offense. If you face any issues, you can immediately contact the Anti-Ragging Committee members or drop a complaint in the grievance box near the office."]
+    },
+    {
+      "tag": "parking",
+      "patterns": ["parking space", "can I bring my car", "bike parking", "is parking free", "where to park my vehicle"],
+      "responses": ["Yes, separate free parking slots are available for two-wheelers and four-wheelers. Students must display their college vehicle pass to park inside the campus.", "Ample parking space is provided near the main gate. Please ensure you wear a helmet (for two-wheelers) to enter the campus."]
+    },
+    {
+      "tag": "bot_identity",
+      "patterns": ["who are you", "what is your name", "are you a human", "tell me about yourself", "what can you do"],
+      "responses": ["I am Campus Assistant, your virtual info desk helper! I can guide you through admissions, fees, placements, document uploads, and daily campus rules.", "Think of me as your digital guide to the college. I handle quick questions about campus life, and you can even upload administrative files through me!"]
+    },
+    {
+      "tag": "docs_admission",
+      "patterns": [
+        "what documents are required for admission", 
+        "documents needed for admission", 
+        "admission checklist", 
+        "which certificates should I upload for admission", 
+        "documents to submit during admission"
+      ],
+      "responses": [
+        "For admission verification, you need to upload: 1) 10th & 12th Marksheets, 2) School Leaving/Transfer Certificate, 3) Migration Certificate (if applicable), 4) Passport size photographs, and 5) Caste/Category Certificate (if claiming quota). You can use the paperclip icon here to upload them.",
+        "The mandatory admission documents are your 10th and 12th grade passing certificates, Leaving Certificate, and a valid ID proof (Aadhar Card/Passport). Please scan and upload them through this chat window."
+      ]
+    },
+    {
+      "tag": "docs_exam",
+      "patterns": [
+        "documents needed for exams", 
+        "what to bring to the exam hall", 
+        "exam document checklist", 
+        "hall ticket and ID", 
+        "do I need an exam pass"
+      ],
+      "responses": [
+        "To enter the examination hall, you must carry your printed Hall Ticket (Admit Card) and your official College Student ID Card. No digital copies on phones are allowed.",
+        "The mandatory documents for appearing in semester exams are your physical Hall Ticket and College ID Card. Ensure your hall ticket has the Controller of Examinations' signature/stamp."
+      ]
+    },
+    {
+      "tag": "docs_scholarship",
+      "patterns": [
+        "documents required for scholarship", 
+        "how to apply for scholarship documents", 
+        "scholarship document checklist", 
+        "what papers do I need for financial aid", 
+        "income certificate for scholarship"
+      ],
+      "responses": [
+        "For scholarship applications, you must submit: 1) Family Income Certificate (issued by a competent authority), 2) Previous year's Marksheet (minimum 60-75% required depending on the scheme), 3) Domicile Certificate, 4) Aadhar Card linked to your bank account, and 5) Fee Receipt of the current year.",
+        "Scholarship approval requires your Income Certificate, Caste Certificate (if applicable), Domicile Certificate, and Cap Round/Admission Letter. Upload them here so the administration cell can review your eligibility."
+      ]
+    },
+    {
+      "tag": "docs_hostel",
+      "patterns": [
+        "documents needed for hostel admission", 
+        "hostel registration documents", 
+        "what certificates are required for hostel room allocation", 
+        "hostel application checklist"
+      ],
+      "responses": [
+        "For hostel allotment, you need to submit: 1) Copy of the College Admission Fee Receipt, 2) Residential Address Proof (Aadhar/Electricity Bill), 3) Medical Fitness Certificate signed by a registered practitioner, and 4) Two local guardian passport photos.",
+        "To secure your hostel room, please provide the college admission confirmation letter, a medical clearance certificate, and an address proof document."
+      ]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": ["I'm sorry, I didn't quite understand that. Could you rephrase your question? You can ask me about admissions, courses, fees, hostel, library, exams, or placements.", "I'm not sure about that yet. Try asking about admission process, fee structure, courses offered, or college timings."]
+    }
+  ]
+}

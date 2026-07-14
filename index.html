@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Campus Assistant — College Info Desk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="seal">CA</div>
+    <div class="masthead-text">
+      <h1>Campus Assistant</h1>
+      <p>College Information &amp; Enquiry Desk</p>
+    </div>
+  </header>
+
+  <main class="chat-card">
+    <div class="chat-log" id="chat-log">
+      <div class="msg bot">
+        <div class="bubble">
+          Hello! I'm the Campus Assistant. Ask me about <strong>admissions</strong>,
+          <strong>courses</strong>, <strong>fees</strong>, <strong>hostel</strong>,
+          <strong>library</strong>, <strong>exams</strong> or <strong>placements</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="quick-chips">
+      <button class="chip" type="button">Admission process?</button>
+      <button class="chip" type="button">Fee structure</button>
+      <button class="chip" type="button">Hostel facilities</button>
+      <button class="chip" type="button">Placement details</button>
+    </div>
+
+   <form id="chat-form" class="chat-input-row" autocomplete="off" style="display: flex; align-items: center; width: 100%;">
+    <input type="file" id="file-input" style="display: none;">
+    
+    <button type="button" id="attach-btn" class="chip" style="display: flex; align-items: center; justify-content: center; width: 45px; height: 35px; min-width: 45px; margin-right: 8px; cursor: pointer; padding: 0;">
+        <i class="fas fa-paperclip" style="font-size: 16px;"></i>
+    </button>
+    
+    <input type="text" id="chat-input" placeholder="Type your question or upload a document..." style="flex: 1;" />
+    <button type="submit" aria-label="Send">Send</button>
+  </form>
+  </main>
+
+  <footer class="note">
+     AI Chatbot for College Organization
+  </footer>
+
+</div>
+
+<script>
+const chatLog   = document.getElementById('chat-log');
+const chatForm  = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chips     = document.querySelectorAll('.chip');
+const attachBtn = document.getElementById('attach-btn');
+const fileInput = document.getElementById('file-input');
+
+function addMessage(text, sender) {
+  const msg = document.createElement('div');
+  msg.className = 'msg ' + sender;
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  bubble.textContent = text;
+  msg.appendChild(bubble);
+  chatLog.appendChild(msg);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+function addTyping() {
+  const msg = document.createElement('div');
+  msg.className = 'msg bot typing';
+  msg.id = 'typing-indicator';
+  msg.innerHTML = '<div class="bubble"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
+  chatLog.appendChild(msg);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+function removeTyping() {
+  const t = document.getElementById('typing-indicator');
+  if (t) t.remove();
+}
+
+async function sendMessage(text) {
+  if (!text.trim()) return;
+  addMessage(text, 'user');
+  chatInput.value = '';
+  addTyping();
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+    const data = await res.json();
+    removeTyping();
+    addMessage(data.response, 'bot');
+  } catch (err) {
+    removeTyping();
+    addMessage("Sorry, I couldn't reach the server. Please make sure app.py is running.", 'bot');
+  }
+}
+
+chatForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  sendMessage(chatInput.value);
+});
+
+chips.forEach(chip => {
+  chip.addEventListener('click', () => sendMessage(chip.textContent));
+});
+// Trigger hidden file selection when the paperclip button is clicked
+attachBtn.addEventListener('click', () => {
+    fileInput.click();
+});
+
+// Capture file selection and post to server
+fileInput.addEventListener('change', async () => {
+    if (fileInput.files.length === 0) return;
+    
+    const file = fileInput.files[0];
+    
+    // Uses your native function to print user bubble
+    addMessage(`Uploading document: ${file.name}`, 'user'); 
+    addTyping(); // Triggers your typing dots animation
+    
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    try {
+        const response = await fetch('/api/upload', {
+            method: 'POST',
+            body: formData
+        });
+        const data = await response.json();
+        
+        removeTyping();
+        addMessage(data.response, 'bot'); // Displays server response bubble
+    } catch (error) {
+        removeTyping();
+        addMessage("Failed to upload the document. Please try again.", 'bot');
+    }
+    
+    fileInput.value = ''; // Reset file input
+});
+</script>
+
+</body>
+</html>
